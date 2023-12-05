@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
 </head>
+
 <body>
     <main id="main" class="main">
+        <!-- another div in main to stablize the whole container -->
         <div id="container">
             <div class="divs">
                 <h1 id="header">Countdown timer</h1>
             </div>
 
             <div id="set-date" class="divs">
-                <label for="date-picker">Set date/time: </label>
-                <input name="date-picker" type="datetime-local">
+                <label for="date">Set: </label>
+                <input id="date" name="date" type="datetime-local">
+                <button  onclick="takeDate()">Start</button>
             </div>
 
             <table id="table" class="divs">
