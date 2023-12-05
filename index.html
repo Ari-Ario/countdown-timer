@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown timer</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
 </head>
 <body>
-    
+    <main id="main" class="main">
+        <div id="container">
+            <div class="divs">
+                <h1 id="header">Countdown timer</h1>
+            </div>
+
+            <div id="set-date" class="divs">
+                <label for="date-picker">Set date/time: </label>
+                <input name="date-picker" type="datetime-local">
+            </div>
+
+            <table id="table" class="divs">
+                <tr class="row">
+                    <th class="th" id="years">59</th>
+                    <th class="th" id="monthes">09</th>
+                    <th class="th" id="days">28</th>
+                    <th class="th" id="hours">23</th>
+                    <th class="th" id="minutes">59</th>
+                    <th class="th" id="seconds">59</th>
+                </tr>
+                <tr class="row">
+                    <td class="td" id="td">years</td>
+                    <td class="td" id="td">monthes</td>
+                    <td class="td" id="td">days</td>
+                    <td class="td" id="td">hours</td>
+                    <td class="td" id="td">minutes</td>
+                    <td class="td" id="td">seconds</td>
+                </tr>
+                <tr class="row"></tr>
+            </table>
+
+            <div class="divs" id="layouts">
+                <label for="">Change layouts: </label>
+                <select>
+                    <option value="fist second third" default> def</option>
+                    <option value="fist second third" > first </option>
+                    <option value="fist second third" >  second</option>
+                    <option value="fist second third" > third</option>
+                </select>
+            </div>
+        </main>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

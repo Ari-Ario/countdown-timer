@@ -1,4 +1,6 @@
 
-let newPara = document.createElement('p')
-document.body.appendChild(newPara)
-newPara.innerHTML = "Count down here"
+let date = new Date();
+
+console.log(date)
+
+let 
