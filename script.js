@@ -14,24 +14,42 @@ function takeDate(){
         let distance = countDownDate - now;
         console.log(distance)
 
-        let years = Math.floor((distance / (1000 * 60 * 60 * 24* 30 * 12)));
-        let months = Math.floor((distance % (1000 * 60 * 60 * 24* 30 * 12)) / (1000 * 60 * 60* 24* 30));
-        var days = Math.floor((distance % (1000 * 60 * 60 * 24* 30 )) / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        let years = Math.floor((distance / (1000 * 60 * 60 * 24* 365)));
+        let months = Math.floor((distance % (1000 * 60 * 60 * 24* 365)) / (1000 * 60 * 60* 24* 30.41666666));
+        let days = Math.floor((distance % (1000 * 60 * 60 * 24* 30.41666666 )) / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
       
-        // Display the result in the element with id="demo"
+        // Display the result in the element with ids
 
+        if (years == 0) {
+          document.getElementById("years").style.display = "none";
+          document.getElementById("years-text").style.display = "none";
+          if (months == 0) {
+            document.getElementById("months").style.display = "none";
+            document.getElementById("months-text").style.display = "none";
+            if (days == 0) {
+              document.getElementById("days").style.display = "none";
+              document.getElementById("days-text").style.display = "none";
+            }
+          }
+        }
+
+        
         if (years < 10){
           document.getElementById("years").innerHTML = "0" + years
         } else {document.getElementById("years").innerHTML = years}
+        
         if (months < 10){
           document.getElementById("months").innerHTML = "0" + months
         } else { document.getElementById("months").innerHTML = months}
+
+
         if (days < 10){
           document.getElementById("days").innerHTML = "0" + days
         } else {document.getElementById("days").innerHTML = days}
+
         if (hours < 10){
           document.getElementById("hours").innerHTML = "0" + hours
         } else {document.getElementById("hours").innerHTML =  hours}
