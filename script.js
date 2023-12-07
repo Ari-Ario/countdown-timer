@@ -63,6 +63,7 @@ function takeDate(){
       
         // If the count down is finished, write some text
         if (distance < 0) {
+          // location.reload()
           clearInterval(x);
           document.getElementById("years").innerHTML = "00"
           document.getElementById("months").innerHTML = "00" 
