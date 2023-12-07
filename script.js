@@ -38,7 +38,6 @@ function takeDate(){
             }
           }
         }
-
         
         if (years < 10){
           document.getElementById("years").innerHTML = "0" + years
