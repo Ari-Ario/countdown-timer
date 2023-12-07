@@ -1,7 +1,6 @@
 
-// let date = new Date();
+let ton = document.getElementById("sound");
 
-// console.log(date, typeof(date))
 let x = NaN;
 
 function takeDate(){
@@ -61,9 +60,6 @@ function takeDate(){
         if (seconds < 10){
           document.getElementById("seconds").innerHTML = "0" + seconds
         } else {document.getElementById("seconds").innerHTML = seconds}
-
-        // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        // + minutes + "m " + seconds + "s ";
       
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -73,7 +69,8 @@ function takeDate(){
           document.getElementById("days").innerHTML = "00"
           document.getElementById("hours").innerHTML =  "ti"
           document.getElementById("minutes").innerHTML = "me"
-          document.getElementById("seconds").innerHTML = "<0"
+          document.getElementById("seconds").innerHTML = "=0"
+          ton.play();
         }
       }, 1000);
 }
