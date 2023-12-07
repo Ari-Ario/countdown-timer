@@ -22,11 +22,15 @@ main {
     width: fit-content;
 }
 
+#img {
+    height: 40px;
+}
+
 .divs {
     /* display: flex;
     justify-content: center;
     align-items: center; */
-    padding-bottom:20px;
+    padding-bottom:40px;
 }
 
 #layouts, #set-date {
@@ -45,12 +49,13 @@ main {
     margin: 40px;
     padding: 20px;
     background-color: rgb(48, 48, 48);
-    border: 5px solid black;
+    border: 5px solid ;
     border-radius: 10px;
     font-family: 'DS-Digital', sans-serif;
     font-size: 60px;
     min-width: 62px;
     min-height: 60px;
+    box-shadow: 0 3px 8px;
 }
 
 .td{
@@ -80,4 +85,8 @@ main {
         width: 100%;
         /* padding-left: 1%; */
     }
+  }
+
+  aa {
+    background-color: rgb(84, 12, 2);
   }

@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown timer</title>
+    <title>timer</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+    <link rel="shortcut icon" href="logo/logo T.png" type="image/x-icon">
+
 </head>
 
 <body>
@@ -13,17 +15,18 @@
         <!-- another div in main to stablize the whole container -->
         <div id="container">
             <div class="divs">
-                <h1 id="header">Countdown timer</h1>
+                <h1 id="header">Countdown Timer</h1>
             </div>
 
             <div id="set-date" class="divs">
-                <label for="date">Set: </label>
+                <label for="date"><strong>Set: </strong></label>
                 <input id="date" name="date" type="datetime-local">
                 <button  onclick="takeDate()">Start</button>
+                <button onclick="pause()">Stop</button>
             </div>
 
             <table id="table" class="divs">
-                <tr class="row">
+                <tr class="row" id="row1">
                     <th class="th" id="years">00</th>
                     <th class="th" id="months">00</th>
                     <th class="th" id="days">00</th>
@@ -31,7 +34,7 @@
                     <th class="th" id="minutes">00</th>
                     <th class="th" id="seconds">00</th>
                 </tr>
-                <tr class="row">
+                <tr class="row" >
                     <td class="td" id="years-text">years</td>
                     <td class="td" id="months-text">monthes</td>
                     <td class="td" id="days-text">days</td>
@@ -43,12 +46,12 @@
             </table>
 
             <div class="divs" id="layouts">
-                <label for="">Change layouts: </label>
-                <select>
-                    <option value="fist second third" default>black</option>
-                    <option value="fist second third" >red</option>
-                    <option value="fist second third" >blue</option>
-                    <option value="fist second third" > cyan</option>
+                <label for="" id="colorSet"><strong>Change layouts: </strong></label>
+                <select id="colorSelector" onchange="changeColorBox(this)">
+                    <option value="black" id="black" default>black</option>
+                    <option value="blue" id="blue">blue</option>
+                    <option value="red" id="red">red</option>
+                    <option value="yellow" id="yellow">yellow</option>
                 </select>
             </div>
         </main>

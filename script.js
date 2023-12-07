@@ -2,11 +2,14 @@
 // let date = new Date();
 
 // console.log(date, typeof(date))
+let x = NaN;
 
 function takeDate(){
     let date = new Date();
     let countDownDate = new Date(document.getElementById('date').value).getTime();
-    let x = setInterval(function() {
+    if (isNaN(countDownDate)) {return;}
+
+    x = setInterval(function() {
         // Get today's date and time
         let now = new Date().getTime();
       
@@ -74,5 +77,32 @@ function takeDate(){
           document.getElementById("seconds").innerHTML = "<0"
         }
       }, 1000);
-    //2023-12-05T14:23
 }
+
+function pause(){
+  clearInterval(x);
+}
+
+
+function changeColorBox(event) {
+  let selectElement = document.getElementById("colorSelector").value
+  let bg = document.getElementById("main")
+  let bgTh = document.getElementsByTagName("tr")
+
+  if (selectElement === "black"){
+    bg.style.backgroundColor = "black";
+    bg.style.color=  "white";
+  } else if (selectElement === "red"){
+    bg.style.backgroundColor = "rgb(84, 12, 2)";
+    bg.style.color=  "rgb(255, 100, 4)";
+  } else if (selectElement === "blue"){
+    bg.style.backgroundColor = "rgb(2, 11, 84)";
+    bg.style.color=  "rgb(11, 187, 255)";
+  } else if (selectElement === "yellow"){
+    bg.style.backgroundColor = "black";
+    bg.style.color=  "orange";
+  } else {
+    alert("Something went wrong!")
+  }
+}
+
