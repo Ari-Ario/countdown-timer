@@ -6,13 +6,20 @@ let x = NaN;
 function takeDate(){
     let date = new Date();
     let countDownDate = new Date(document.getElementById('date').value).getTime();
-    if (isNaN(countDownDate)) {return;}
+    console.log(countDownDate, typeof(countDownDate))
+    if (isNaN(countDownDate)) {
+      return;
+    } else if ((countDownDate - new Date()) < 0) {
+      alert("Date is expired!");
+      location.reload();
+    }
 
     x = setInterval(function() {
         // Get today's date and time
         let now = new Date().getTime();
       
         // Find the distance between now and the count down date
+
         let distance = countDownDate - now;
         console.log(distance)
 
@@ -78,6 +85,7 @@ function takeDate(){
 
 function pause(){
   clearInterval(x);
+  location.reload();
 }
 
 
