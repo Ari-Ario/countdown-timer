@@ -1,4 +1,6 @@
-##A countdown timer in web-dev written  with JavaScript
+## A countdown timer in web-dev written  with JavaScript
 
-#four diffrent looks
-#diffrent digits
+Design and functionality
+# four diffrent looks 
+# diffrent digits (six blocks/containers)
+# stop functu
