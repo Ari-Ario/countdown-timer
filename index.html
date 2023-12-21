@@ -12,23 +12,23 @@
 
 <body>
     <main id="main" class="main">
-        <!-- another div in main to stablize the whole container -->
-        <div id="container">
-            <div class="divs">
+        <!-- another section in main to stablize the whole container -->
+        <section id="container">
+            <section class="sections">
                 <h1 id="header">Countdown Timer</h1>
-            </div>
+            </section>
 
-            <div id="set-date" class="divs">
+            <section id="set-date" class="sections">
                 <label for="date"><strong>Set&#8594; </strong></label>
                 <input id="date" name="date" type="datetime-local">
-                <div id="buttons">                
-                    <button  onclick="takeDate()">Start</button>
-                    <button onclick="pause()">Stop</button>
-                </div>
+                <section id="buttons">                
+                    <button  onclick="takeDate(this)">Start</button>
+                    <button onclick="stopTimer()">Stop</button>
+                </section>
                 <audio id="sound" src="Sound/alarm_beep-clock-165474.mp3"></audio>
-            </div>
+            </section>
 
-            <table id="table" class="divs">
+            <table id="table" class="sections">
                 <tr class="row" id="row1">
                     <th class="th" id="years">00</th>
                     <th class="th" id="months">00</th>
@@ -48,17 +48,18 @@
                 <tr class="row"></tr>
             </table>
 
-            <div class="divs" id="layouts">
-                <label for="" id="colorSet"><strong>Change layouts: </strong></label>
+            <section class="sections" id="layouts">
+                <label for="colorSelector" id="colorSet"><strong>Change layouts: </strong></label>
                 <select id="colorSelector" onchange="changeColorBox(this)">
                     <option value="black" id="black" default>black</option>
                     <option value="blue" id="blue">blue</option>
                     <option value="red" id="red">red</option>
                     <option value="yellow" id="yellow">yellow</option>
                 </select>
-            </div>
+            </section>
+        </section>
         </main>
-    </div>
+    </section>
 </body>
 <script src="script.js"></script>
 </html>
