@@ -1,7 +1,6 @@
 
-let ton = document.getElementById("sound");
 
-let id = NaN;
+let ton = document.getElementById("sound");
 
 const yearEL = document.getElementById("years")
 const monthEl= document.getElementById("months")
@@ -10,12 +9,42 @@ const hourEl= document.getElementById("hours")
 const minuteEl= document.getElementById("minutes")
 const secondEl= document.getElementById("seconds")
 
-function takeDate(){
+
+function changeColorBox(event) {
+  let selectElement = document.getElementById("colorSelector").value
+  let bg = document.getElementById("main")
+
+  if (selectElement === "black"){
+    bg.style.backgroundColor = "black";
+    bg.style.color=  "white";
+  } else if (selectElement === "red"){
+    bg.style.backgroundColor = "rgb(84, 12, 2)";
+    bg.style.color=  "rgb(255, 100, 4)";
+  } else if (selectElement === "blue"){
+    bg.style.backgroundColor = "#001E3C";
+    bg.style.color=  "rgb(11, 187, 255)";
+  } else if (selectElement === "yellow"){
+    bg.style.backgroundColor = "#1F2937";
+    bg.style.color=  "orange";
+  } else {
+    alert("Something went wrong!")
+  }
+}
+
+
+// time interval as object
+class startStopTimer {
+  constructor() {
+    this.id = NaN;
+    console.log("inside the class");
+  }
+
+  setTimer(){
     let date = new Date();
     let countDownDate = new Date(document.getElementById('date').value).getTime();
     if (isNaN(countDownDate)) {return;}
 
-    id = setInterval(function() {
+    this.id = setInterval(function() {
         // Get today's date and time
         let now = new Date().getTime();
       
@@ -53,11 +82,7 @@ function takeDate(){
           monthEl.innerHTML = "0" + months
         } else { monthEl.innerHTML = months}
 
-        if (days < 10){
-          dayEL.innerHTML = "0" + days
-        } else {dayEL.innerHTML = days}
-
-        if (hours < 10){
+        if (days < 10){nction 
           hourEl.innerHTML = "0" + hours
         } else {hourEl.innerHTML =  hours}
         if (minutes < 10){
@@ -70,7 +95,7 @@ function takeDate(){
         // If the count down is finished, write some text
         if (distance < 0) {
           // location.reload()
-          clearInterval(id);
+          // clearInterval(this.id);
           yearEL.innerHTML = "00"
           monthEl.innerHTML = "00" 
           dayEL.innerHTML = "00"
@@ -80,31 +105,14 @@ function takeDate(){
           ton.play();
         }
       }, 1000);
-}
-
-function stopTimer(){
-  location.reload();
-}
-
-
-function changeColorBox(event) {
-  let selectElement = document.getElementById("colorSelector").value
-  let bg = document.getElementById("main")
-
-  if (selectElement === "black"){
-    bg.style.backgroundColor = "black";
-    bg.style.color=  "white";
-  } else if (selectElement === "red"){
-    bg.style.backgroundColor = "rgb(84, 12, 2)";
-    bg.style.color=  "rgb(255, 100, 4)";
-  } else if (selectElement === "blue"){
-    bg.style.backgroundColor = "#001E3C";
-    bg.style.color=  "rgb(11, 187, 255)";
-  } else if (selectElement === "yellow"){
-    bg.style.backgroundColor = "#1F2937";
-    bg.style.color=  "orange";
-  } else {
-    alert("Something went wrong!")
   }
+
+  stopTimer(){
+    clearTimeout(this.id)
+  }
+
 }
+
+const x = new startStopTimer();
+const start = x.setTimer;
 
