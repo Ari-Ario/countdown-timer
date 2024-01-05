@@ -36,13 +36,17 @@ function changeColorBox(event) {
 class startStopTimer {
   constructor() {
     this.id = NaN;
-    console.log("inside the class");
+    this.count= 0;
   }
 
   setTimer(){
+    this.count+=1;
+    if (this.count != 1) {
+      alert("Please stop the current timer first!")
+      return;
+    }
     let date = new Date();
     let countDownDate = new Date(document.getElementById('date').value).getTime();
-    console.log(countDownDate, typeof(countDownDate))
     if (isNaN(countDownDate)) {
       return;
     } else if ((countDownDate - new Date()) < 0) {
@@ -57,7 +61,7 @@ class startStopTimer {
         // Find the distance between now and the count down date
 
         let distance = countDownDate - now;
-        console.log(distance)
+        console.log(`seconds: ${distance/1000}`)
 
         let years = Math.floor((distance / (1000 * 60 * 60 * 24* 365)));
         let months = Math.floor((distance % (1000 * 60 * 60 * 24* 365)) / (1000 * 60 * 60* 24* 30.41666666));
@@ -82,44 +86,56 @@ class startStopTimer {
         }
         
         if (years < 10){
-          yearEL.innerHTML = "0" + years
-        } else {yearEL.innerHTML = years}
+          yearEL.innerHTML = "0" + years;
+        } else {yearEL.innerHTML = years;}
         
         if (months < 10){
-          monthEl.innerHTML = "0" + months
-        } else { monthEl.innerHTML = months}
+          monthEl.innerHTML = "0" + months;
+        } else { monthEl.innerHTML = months;}
 
-        if (days < 10){nction 
-          hourEl.innerHTML = "0" + hours
-        } else {hourEl.innerHTML =  hours}
+        if (days < 10){ 
+          hourEl.innerHTML = "0" + hours;
+        } else {hourEl.innerHTML =  hours;}
         if (minutes < 10){
-          minuteEl.innerHTML = "0" + minutes
-        } else {minuteEl.innerHTML = minutes}
+          minuteEl.innerHTML = "0" + minutes;
+        } else {minuteEl.innerHTML = minutes;}
         if (seconds < 10){
-          secondEl.innerHTML = "0" + seconds
-        } else {secondEl.innerHTML = seconds}
+          secondEl.innerHTML = "0" + seconds;
+        } else {secondEl.innerHTML = seconds;}
       
         // If the count down is finished, write some text
         if (distance < 0) {
-          // location.reload()
           // clearInterval(this.id);
-          yearEL.innerHTML = "00"
-          monthEl.innerHTML = "00" 
-          dayEL.innerHTML = "00"
-          hourEl.innerHTML =  "ti"
-          minuteEl.innerHTML = "me"
-          secondEl.innerHTML = "=0"
+          yearEL.innerHTML = "00";
+          monthEl.innerHTML = "00"; 
+          dayEL.innerHTML = "00";
+          hourEl.innerHTML =  "ti";
+          minuteEl.innerHTML = "me";
+          secondEl.innerHTML = "=0";
           ton.play();
+          // automatically stoping the timer after 30 seconds
+          if (distance < -30000){
+            this.stop();
+            location.reload();
+          }
         }
       }, 1000);
   }
 
-  stopTimer(){
-    clearTimeout(this.id)
+  stop(){
+    clearInterval(this.id, 100);
   }
 
 }
 
-const x = new startStopTimer();
-const start = x.setTimer;
+// calling the methods inside the class
+let timerClass = new startStopTimer();
+
+function takeTime(){
+  timerClass.setTimer();
+}
+function stopTimer(){
+  timerClass.stop();
+  location.reload();
+}
 
